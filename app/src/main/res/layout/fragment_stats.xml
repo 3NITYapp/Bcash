@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.stats.StatsFragment">
+
+
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvStatisticsHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="@dimen/dimen_12"
+                android:fontFamily="@font/raleway_bold"
+                android:text="@string/bottom_statistics"
+                android:textColor="@color/black"
+                android:textSize="40sp" />
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pieChart"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivEmptyStats"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="297dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_cancel"
+                android:contentDescription="@string/empty_title"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tvEmptyStats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_6"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/you_haven_t_added_any_entries_yet"
+                android:textColor="@color/light_gray"
+                android:visibility="gone"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvExpanses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginEnd="@dimen/dimen_16"
+                android:layout_marginBottom="@dimen/dimen_16"
+                android:visibility="gone"
+                app:cardCornerRadius="25dp"
+                android:elevation="@dimen/dimen_16">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/llHousing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_10"
+                        android:orientation="horizontal"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_10"
+                            android:src="@drawable/ic_housing"
+                            android:contentDescription="@string/housing_expanses"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/purple_500"
+                            android:text="@string/housing"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:text="-"/>
+
+                        <TextView
+                            android:id="@+id/tvHousingSum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:fontFeatureSettings="pnum, lnum"
+                            tools:text="1000"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llTransportation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_10"
+                        android:orientation="horizontal"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_10"
+                            android:src="@drawable/ic_transport"
+                            android:contentDescription="@string/housing_expanses"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/purple_500"
+                            android:text="@string/transportation"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:text="-"/>
+
+                        <TextView
+                            android:id="@+id/tvTransportationSum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:fontFeatureSettings="pnum, lnum"
+                            tools:text="1000"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llFood"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_10"
+                        android:orientation="horizontal"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_10"
+                            android:src="@drawable/ic_food"
+                            android:contentDescription="@string/housing_expanses"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/purple_500"
+                            android:text="@string/food"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:text="-"/>
+
+                        <TextView
+                            android:id="@+id/tvFoodSum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:fontFeatureSettings="pnum, lnum"
+                            tools:text="1000"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llUtilities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_10"
+                        android:orientation="horizontal"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_10"
+                            android:src="@drawable/ic_utilities"
+                            android:contentDescription="@string/housing_expanses"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/purple_500"
+                            android:text="@string/utilities"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:text="-"/>
+
+                        <TextView
+                            android:id="@+id/tvUtilitiesSum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:fontFeatureSettings="pnum, lnum"
+                            tools:text="1000"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llInsurance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_10"
+                        android:orientation="horizontal"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_10"
+                            android:src="@drawable/ic_insurance"
+                            android:contentDescription="@string/housing_expanses"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/purple_500"
+                            android:text="@string/insurance"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:text="-"/>
+
+                        <TextView
+                            android:id="@+id/tvInsuranceSum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:fontFeatureSettings="pnum, lnum"
+                            tools:text="1000"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llHealthcare"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_10"
+                        android:orientation="horizontal"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_10"
+                            android:src="@drawable/ic_medical"
+                            android:contentDescription="@string/housing_expanses"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/purple_500"
+                            android:text="@string/healthcare"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:text="-"/>
+
+                        <TextView
+                            android:id="@+id/tvHealthcareSum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:fontFeatureSettings="pnum, lnum"
+                            tools:text="1000"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llPersonal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_10"
+                        android:orientation="horizontal"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="@dimen/dimen_4"
+                            android:layout_margin="@dimen/dimen_10"
+                            android:backgroundTint="@color/teal_200"
+                            android:src="@drawable/ic_person"
+                            android:contentDescription="@string/housing_expanses"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/purple_500"
+                            android:text="@string/other"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:text="-"
+                            android:textColor="@color/red"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tvPersonalSum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:fontFeatureSettings="pnum, lnum"
+                            tools:text="1000"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llEntertainment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_10"
+                        android:orientation="horizontal"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="@dimen/dimen_4"
+                            android:layout_margin="@dimen/dimen_10"
+                            android:src="@drawable/ic_entertaiment"
+                            android:contentDescription="@string/housing_expanses"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/purple_500"
+                            android:text="@string/entertainment"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:text="-"
+                            android:textColor="@color/red"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tvEntertainmentSum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:fontFeatureSettings="pnum, lnum"
+                            tools:text="1000"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llOther"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_10"
+                        android:orientation="horizontal"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="@dimen/dimen_4"
+                            android:layout_margin="@dimen/dimen_10"
+                            android:src="@drawable/ic_wallet"
+                            android:background="@color/purple_200"
+                            android:contentDescription="@string/housing_expanses"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/purple_500"
+                            android:text="@string/other"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:text="-"
+                            android:textColor="@color/red"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tvOtherSum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/red"
+                            android:fontFeatureSettings="pnum, lnum"
+                            tools:text="1000"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llIncome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_10"
+                        android:orientation="horizontal"
+                        android:background="@android:color/transparent"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_10"
+                            android:src="@drawable/ic_income"
+                            android:contentDescription="@string/housing_expanses"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/purple_500"
+                            android:text="@string/income"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/surf_green"
+                            android:text="+"/>
+
+                        <TextView
+                            android:id="@+id/tvIncomeSum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/raleway_bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/surf_green"
+                            android:fontFeatureSettings="pnum, lnum"
+                            tools:text="1000"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

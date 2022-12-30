@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/empty_layout"
+    android:layout_width="match_parent"
+    android:layout_height="350dp">
+
+    <ImageView
+        android:id="@+id/logoEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_cancel"
+        android:contentDescription="@string/list_of_expenses_is_empty"/>
+
+    <TextView
+        android:id="@+id/empty_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dimen_6"
+        android:layout_below="@+id/logoEmpty"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/write_your_first_expenses"
+        android:textColor="@color/light_gray" />
+
+
+</RelativeLayout>
